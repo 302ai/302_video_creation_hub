@@ -32,7 +32,7 @@
       "generate_video": "Generate Video",
       "generate_loading_button_label": "Generating video, please wait for 3-4 minutes...",
       "history_limit_title": "Video History Record Limit Reached",
-      "history_limit_description": "The number of video history records has reached the limit of 10. Please delete some history records before continuing.",
+      "history_limit_description": "The number of video history records has reached the limit of 30. Please delete some history records before continuing.",
       "confirm": "Confirm",
       "cancel": "Cancel"
     }
@@ -123,11 +123,12 @@
   },
   "home": {
     "header": {
-      "title": "AI Video Creative Material Station"
+      "title": "AI Video Creation Hub"
     },
     "tabs": {
       "basicParams": "Basic Parameters",
-      "advancedParams": "Advanced Parameters"
+      "advancedParams": "Advanced Parameters",
+      "videoPreview": "Video Preview"
     }
   },
   "generation": {
@@ -141,6 +142,9 @@
     "success": {
       "create_video_task_success": "Video task created, please check the results later",
       "video_generated_success": "Video generated successfully"
+    },
+    "loading": {
+      "generating_video": "Video generating, please wait for 3-4 minutes..."
     }
   },
   "videoCard": {

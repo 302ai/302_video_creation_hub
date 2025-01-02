@@ -54,7 +54,7 @@ export default function BasicTabForm({ videoForm }: BasicTabFormProps) {
     async (event: FormEvent) => {
       event.preventDefault();
 
-      if (historyTasks.length >= 10) {
+      if (historyTasks.length >= 30) {
         setShowHistoryLimitAlert(true);
         return;
       }
@@ -75,13 +75,13 @@ export default function BasicTabForm({ videoForm }: BasicTabFormProps) {
         videoSubject,
         videoLanguage,
       });
+      setValue("videoScript", videoScript.data.video_script);
+
       const videoTerms = await getVideoTerms({
         videoSubject,
         videoScript: videoScript.data.video_script,
         videoLanguage,
       });
-
-      setValue("videoScript", videoScript.data.video_script);
       setValue("videoTerms", videoTerms.data.video_terms?.join(","));
 
       setGeneratedScript(true);

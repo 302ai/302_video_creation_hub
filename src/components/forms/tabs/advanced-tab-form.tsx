@@ -240,7 +240,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 <span>10</span>
               </div>
 
-              <div className="relative flex gap-[94px]">
+              <div className="relative flex gap-x-[94px] max-md:flex-col max-md:gap-y-4">
                 {/* 字幕颜色 */}
                 <ColorPickerButton
                   label={t("text_color_label")}
@@ -278,7 +278,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
               /> */}
 
               {/* 选择音色 */}
-              <div className="flex w-full flex-row items-end justify-between gap-3">
+              <div className="flex w-full flex-wrap gap-2">
                 <div className="flex-1">
                   <FormGenerator
                     id="voice-name"
@@ -300,14 +300,16 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                     errors={errors}
                   />
                 </div>
-                <AudioPlayer
-                  ref={audioPlayerRef}
-                  audioUrl={
-                    GLOBAL.VOICENAME.SUPPORTED.find(
-                      (item) => item.value === selectedVoice
-                    )?.url || GLOBAL.VOICENAME.DEFAULT.url
-                  }
-                />
+                <div className="flex items-end">
+                  <AudioPlayer
+                    ref={audioPlayerRef}
+                    audioUrl={
+                      GLOBAL.VOICENAME.SUPPORTED.find(
+                        (item) => item.value === selectedVoice
+                      )?.url || GLOBAL.VOICENAME.DEFAULT.url
+                    }
+                  />
+                </div>
               </div>
 
               {/* 朗读音量 */}

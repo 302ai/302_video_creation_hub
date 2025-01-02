@@ -8,7 +8,9 @@ export default function PreviewTab() {
   return (
     <div className="flex h-full w-full flex-col items-center gap-4">
       {/* current video preview */}
-      {currentTask.taskId && <VideoCard currentTask={currentTask} />}
+      {currentTask.taskId && (
+        <VideoCard currentTask={currentTask} lastOne={true} />
+      )}
 
       {/* history video preview */}
       {historyTasks.map((historyTask, index) => (

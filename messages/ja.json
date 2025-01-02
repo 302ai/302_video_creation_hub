@@ -32,7 +32,7 @@
       "generate_video": "ビデオを生成",
       "generate_loading_button_label": "ビデオを生成中です。3-4分待ってください...",
       "history_limit_title": "ビデオ履歴記録の上限に達しました",
-      "history_limit_description": "ビデオ履歴記録の数が10件の上限に達しました。いくつかの履歴記録を削除してから続行してください。",
+      "history_limit_description": "ビデオ履歴記録の数が30件の上限に達しました。いくつかの履歴記録を削除してから続行してください。",
       "confirm": "確認",
       "cancel": "キャンセル"
     }
@@ -123,11 +123,12 @@
   },
   "home": {
     "header": {
-      "title": "AI動画クリエイティブ素材ステーション"
+      "title": "AI動画素材クリエイティブステーション"
     },
     "tabs": {
       "basicParams": "基本パラメータ",
-      "advancedParams": "詳細パラメータ"
+      "advancedParams": "詳細パラメータ",
+      "videoPreview": "ビデオプレビュー"
     }
   },
   "generation": {
@@ -141,6 +142,9 @@
     "success": {
       "create_video_task_success": "ビデオタスクが作成されました。結果を確認してください",
       "video_generated_success": "ビデオ生成成功"
+    },
+    "loading": {
+      "generating_video": "ビデオ生成中です。3-4分待ってください..."
     }
   },
   "videoCard": {

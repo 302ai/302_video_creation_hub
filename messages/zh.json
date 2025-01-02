@@ -32,7 +32,7 @@
       "generate_video": "生成视频",
       "generate_loading_button_label": "正在生成视频，请耐心等待3-4分钟...",
       "history_limit_title": "视频历史记录已达上限",
-      "history_limit_description": "视频历史记录数量已达到10条上限。请删除一些历史记录后再继续。",
+      "history_limit_description": "视频历史记录数量已达到30条上限。请删除一些历史记录后再继续。",
       "confirm": "确认",
       "cancel": "取消"
     }
@@ -123,11 +123,12 @@
   },
   "home": {
     "header": {
-      "title": "AI视频创意素材站"
+      "title": "AI视频素材创意站"
     },
     "tabs": {
       "basicParams": "基础参数",
-      "advancedParams": "高级参数"
+      "advancedParams": "高级参数",
+      "videoPreview": "视频预览"
     }
   },
   "generation": {
@@ -141,6 +142,9 @@
     "success": {
       "create_video_task_success": "视频任务已创建，请稍后查看结果",
       "video_generated_success": "视频生成成功"
+    },
+    "loading": {
+      "generating_video": "视频生成中，请耐心等待3-4分钟..."
     }
   },
   "videoCard": {

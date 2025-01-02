@@ -44,6 +44,8 @@ const logger = createScopedLogger("UseVideoForm");
 
 let isGlobalInitialized = false;
 
+const TOAST_ID = "video-generation-status";
+
 export function useVideoForm(): UseVideoFormReturn {
   const t = useTranslations("generation");
 
@@ -94,6 +96,9 @@ export function useVideoForm(): UseVideoFormReturn {
 
       const { taskId, taskSubject, createdAt } = store.get(getCurrentTask);
 
+      toast.dismiss(TOAST_ID);
+      toast.success(t("success.video_generated_success"));
+
       store.set(addHistoryTask, {
         taskId,
         taskSubject,
@@ -101,17 +106,18 @@ export function useVideoForm(): UseVideoFormReturn {
         createdAt,
       });
       store.set(clearCurrentTask);
-      toast.success(t("success.video_generated_success"));
     },
     onError: (error) => {
       logger.error("Error polling video:", error);
 
-      store.set(clearCurrentTask);
-
+      toast.dismiss(TOAST_ID);
       toast.error(t("errors.video_generated_failed"));
+
+      store.set(clearCurrentTask);
     },
     onData: (data) => {
       store.set(updateCurrentTaskProgress, data.progress);
+      toast.loading(t("loading.generating_video"), { id: TOAST_ID });
     },
   });
 
@@ -183,7 +189,6 @@ export function useVideoForm(): UseVideoFormReturn {
 
       toast.success(t("success.create_video_task_success"));
 
-      // Start polling
       startPolling(result.data.task_id);
     } catch (error) {
       toast.error(t("errors.create_video_task_failed"));
