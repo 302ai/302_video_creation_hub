@@ -6,6 +6,7 @@
 
 <p align="center"><a href="README_zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
+![](docs/302_Video_Creation_Hub_jp.png)
 
 [302.AI](https://302.ai)の[AI 動画素材クリエイティブステーション](https://302.ai/ja/tools/video/)のオープンソース版です。
 302.AIに直接ログインすることで、コード不要、設定不要のオンライン体験が可能です。
