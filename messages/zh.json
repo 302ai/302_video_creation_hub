@@ -1,0 +1,157 @@
+{
+  "auth": {
+    "description": "创建者开启了验证，请在下方填入分享码",
+    "form": {
+      "confirm_button": "确认",
+      "confirm_button_loading": "验证中",
+      "input_code": "请输入分享码",
+      "remember_code": "记住分享码"
+    },
+    "title": "需要分享码"
+  },
+  "baseTab": {
+    "form": {
+      "video_subject_label": "主题",
+      "video_subject_placeholder": "必填，输入主题后可选择一键生成视频文案、关键词",
+      "video_language_label": "输出语言",
+      "video_language_placeholder": "自动选择",
+      "video_language_opts_label": {
+        "zh": "中文",
+        "en": "英语",
+        "ja": "日语",
+        "ko": "韩语",
+        "de": "德语",
+        "fr": "法语"
+      },
+      "generate_content": "一键生成",
+      "regenerate_content": "重新生成",
+      "video_script_label": "文案",
+      "video_script_placeholder": "合理使用标点断句，有助于生成长度适中的字幕，文案小于500字",
+      "video_terms_label": "关键词",
+      "video_terms_placeholder": "多个关键词请用逗号分隔",
+      "generate_video": "生成视频",
+      "generate_loading_button_label": "正在生成视频，请耐心等待3-4分钟...",
+      "history_limit_title": "视频历史记录已达上限",
+      "history_limit_description": "视频历史记录数量已达到10条上限。请删除一些历史记录后再继续。",
+      "confirm": "确认",
+      "cancel": "取消"
+    }
+  },
+  "advancedTab": {
+    "form": {
+      "video_setting": "视频设置",
+      "subtitle_setting": "字幕设置",
+      "speech_setting": "语音设置",
+      "video_source_label": "视频来源",
+      "video_mode_label": "视频拼接模式",
+      "video_mode_opts_label": {
+        "sequential": "顺序",
+        "random": "随机"
+      },
+      "video_ratio_label": "视频比例",
+      "video_ratio_opts_label": {
+        "xigua": "横屏 16:9（西瓜视频）",
+        "tikTok": "竖屏 9:16（抖音视频）"
+      },
+      "video_duration_label": "每个视频合成片段最大时长（单位：秒）",
+      "subtitle_label": "启用字幕（若选择不启用，下面的设置将不会生效）",
+      "subtitle_font_label": "字幕字体",
+      "subtitle_font_placeholder": "Pexels",
+      "subtitle_position_label": "字幕位置",
+      "subtitle_position_opts_label": {
+        "top": "顶部",
+        "middle": "中间",
+        "bottom": "底部"
+      },
+      "font_size_label": "字幕大小",
+      "stroke_width_label": "描边粗细",
+      "text_color_label": "字幕颜色",
+      "stroke_color_label": "描边颜色",
+      "speech_model_label": "选择语音模型",
+      "speech_voice_label": "选择音色",
+      "speech_voice_opts_suffix": {
+        "zh-CN-Female": "(中国-女声)",
+        "zh-CN-Male": "(中国-男声)",
+        "en-US-Female": "(美国-女声)",
+        "en-US-Male": "(美国-男声)",
+        "de-DE-Female": "(德国-女声)",
+        "de-DE-Male": "(德国-男声)",
+        "fr-FR-Female": "(法国-女声)",
+        "fr-FR-Male": "(法国-男声)"
+      },
+      "bgm_type_label": "背景音乐",
+      "bgm_type_opts_label": {
+        "null": "无背景音乐",
+        "random": "随机背景音乐"
+      },
+      "voic-volume_label": "朗读音量",
+      "bgm-volume_label": "背景音乐音量"
+    }
+  },
+  "global": {
+    "error": {
+      "copy_failed": "复制失败",
+      "code_invalid": "分享码错误, 更多请访问 302.AI",
+      "network_error": "网络服务错误, 请查看网络状态或稍后再试!",
+      "not_found": "页面不存在",
+      "tool_deleted": "该工具已删除, 更多请访问 <site>302.AI</site>",
+      "tool_disabled": "该工具已禁用, 更多请访问 <site>302.AI</site>",
+      "unknown_error": "发生未知错误, 请联系客服"
+    },
+    "footer": {
+      "copyright_content": "本项目由<logo></logo>驱动",
+      "copyright_leading": "内容由AI生成，仅供参考"
+    },
+    "header": {
+      "language_switcher": {
+        "switch_language": "切换语言"
+      },
+      "theme_switcher": {
+        "dark": "暗色模式",
+        "light": "亮色模式",
+        "system": "跟随系统",
+        "toggle_theme": "切换主题"
+      },
+      "tool_info": {
+        "description": "当前工具相关信息",
+        "title": "关于",
+        "trigger": {
+          "label": "打开/关闭工具信息弹窗"
+        }
+      }
+    }
+  },
+  "home": {
+    "header": {
+      "title": "AI视频创意素材站"
+    },
+    "tabs": {
+      "basicParams": "基础参数",
+      "advancedParams": "高级参数"
+    }
+  },
+  "generation": {
+    "errors": {
+      "videoSubject": "视频主题不能为空!",
+      "videoScript": "视频文案不能为空!",
+      "videoTerms": "关键词不能为空!",
+      "create_video_task_failed": "创建视频任务失败，请稍后重试",
+      "video_generated_failed": "视频生成失败"
+    },
+    "success": {
+      "create_video_task_success": "视频任务已创建，请稍后查看结果",
+      "video_generated_success": "视频生成成功"
+    }
+  },
+  "videoCard": {
+    "videoGenerating": "视频正在生成...",
+    "download": "下载",
+    "delete": "删除",
+    "toast": {
+      "downloading": "正在下载视频...",
+      "downloaded_success": "视频下载成功",
+      "download_failed": "视频下载失败",
+      "delete_success": "视频删除成功"
+    }
+  }
+}

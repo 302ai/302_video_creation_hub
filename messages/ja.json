@@ -1,0 +1,157 @@
+{
+  "auth": {
+    "description": "作成者は認証を有効にしています。以下の共有コードを入力してください",
+    "form": {
+      "confirm_button": "確認",
+      "confirm_button_loading": "検証中",
+      "input_code": "共有コードを入力してください",
+      "remember_code": "共有コードを記憶する"
+    },
+    "title": "コードを共有する必要がある"
+  },
+  "baseTab": {
+    "form": {
+      "video_subject_label": "テーマ",
+      "video_subject_placeholder": "必須、テーマを入力すると、ビデオ文案とキーワードを一括生成できます",
+      "video_language_label": "出力言語",
+      "video_language_placeholder": "自動選択",
+      "video_language_opts_label": {
+        "zh": "中国語",
+        "en": "英語",
+        "ja": "日本語",
+        "ko": "韓国語",
+        "de": "ドイツ語",
+        "fr": "フランス語"
+      },
+      "generate_content": "コンテンツを生成",
+      "regenerate_content": "コンテンツを再生成",
+      "video_script_label": "文案",
+      "video_script_placeholder": "句読点を適切に使用して、長さが適切なサブタイトルを生成するために、文案は500文字以下にしてください",
+      "video_terms_label": "キーワード",
+      "video_terms_placeholder": "複数のキーワードはカンマで区切ってください",
+      "generate_video": "ビデオを生成",
+      "generate_loading_button_label": "ビデオを生成中です。3-4分待ってください...",
+      "history_limit_title": "ビデオ履歴記録の上限に達しました",
+      "history_limit_description": "ビデオ履歴記録の数が10件の上限に達しました。いくつかの履歴記録を削除してから続行してください。",
+      "confirm": "確認",
+      "cancel": "キャンセル"
+    }
+  },
+  "advancedTab": {
+    "form": {
+      "video_setting": "ビデオ設定",
+      "subtitle_setting": "サブタイトル設定",
+      "speech_setting": "音声設定",
+      "video_source_label": "ビデオソース",
+      "video_mode_label": "ビデオ連結モード",
+      "video_mode_opts_label": {
+        "sequential": "順番",
+        "random": "ランダム"
+      },
+      "video_ratio_label": "動画比率",
+      "video_ratio_opts_label": {
+        "xigua": "横向き 16:9 (西瓜動画)",
+        "tikTok": "縦向き 9:16 (TikTok動画)"
+      },
+      "video_duration_label": "各動画セグメントの最大持続時間（秒単位）",
+      "subtitle_label": "サブタイトルを起動（サブタイトルを選択しない場合、下記の設定は有効になりません）",
+      "subtitle_font_label": "サブタイトルフォント",
+      "subtitle_font_placeholder": "Pexels",
+      "subtitle_position_label": "サブタイトル位置",
+      "subtitle_position_opts_label": {
+        "top": "上部",
+        "middle": "中間",
+        "bottom": "下部"
+      },
+      "font_size_label": "サブタイトルサイズ",
+      "stroke_width_label": "ボーダー太さ",
+      "text_color_label": "テキストカラー",
+      "stroke_color_label": "ボーダーカラー",
+      "speech_model_label": "選択音声モデル",
+      "speech_voice_label": "選択音色",
+      "speech_voice_opts_suffix": {
+        "zh-CN-Female": "(中国語-女声)",
+        "zh-CN-Male": "(中国語-男声)",
+        "en-US-Female": "(アメリカ-女声)",
+        "en-US-Male": "(アメリカ-男声)",
+        "de-DE-Female": "(ドイツ-女声)",
+        "de-DE-Male": "(ドイツ-男声)",
+        "fr-FR-Female": "(フランス-女声)",
+        "fr-FR-Male": "(フランス-男声)"
+      },
+      "bgm_type_label": "背景音楽",
+      "bgm_type_opts_label": {
+        "null": "背景音楽なし",
+        "random": "ランダム背景音楽"
+      },
+      "voic-volume_label": "読み上げ音量",
+      "bgm-volume_label": "背景音楽音量"
+    }
+  },
+  "global": {
+    "error": {
+      "code_invalid": "共有コードが無効です。詳細は302.AIをご覧ください",
+      "copy_failed": "コピーに失敗しました",
+      "network_error": "ネットワークサービスエラー。ネットワーク状態を確認するか、後ほど再試行してください",
+      "not_found": "ページが存在しません",
+      "tool_deleted": "このツールは削除されました。詳細については、<site>302.AI</site> にアクセスしてください。",
+      "tool_disabled": "このツールは無効になっています。詳細については、<site>302.AI</site> にアクセスしてください。",
+      "unknown_error": "不明なエラーが発生しました。サポートにお問い合わせください"
+    },
+    "footer": {
+      "copyright_content": "<logo></logo>による提供",
+      "copyright_leading": "AI生成のコンテンツであり、参考用です"
+    },
+    "header": {
+      "language_switcher": {
+        "switch_language": "言語を切り替える"
+      },
+      "theme_switcher": {
+        "dark": "ダークモード",
+        "light": "ライトモード",
+        "system": "システムデフォルト",
+        "toggle_theme": "テーマを切り替える"
+      },
+      "tool_info": {
+        "description": "現在のツールに関する情報",
+        "title": "について",
+        "trigger": {
+          "label": "ツール情報ポップアップを開く/閉じる"
+        }
+      }
+    }
+  },
+  "home": {
+    "header": {
+      "title": "AI動画クリエイティブ素材ステーション"
+    },
+    "tabs": {
+      "basicParams": "基本パラメータ",
+      "advancedParams": "詳細パラメータ"
+    }
+  },
+  "generation": {
+    "errors": {
+      "videoSubject": "ビデオテーマは必須です!",
+      "videoScript": "ビデオ文案は必須です!",
+      "videoTerms": "キーワードは必須です!",
+      "create_video_task_failed": "ビデオタスクの作成に失敗しました。後でもう一度お試しください",
+      "video_generated_failed": "ビデオ生成に失敗しました"
+    },
+    "success": {
+      "create_video_task_success": "ビデオタスクが作成されました。結果を確認してください",
+      "video_generated_success": "ビデオ生成成功"
+    }
+  },
+  "videoCard": {
+    "videoGenerating": "ビデオ生成中です...",
+    "download": "ダウンロード",
+    "delete": "削除する",
+    "toast": {
+      "downloading": "ビデオをダウンロード中です...",
+      "downloaded_success": "ビデオダウンロード成功",
+      "download_failed": "ビデオダウンロード失敗",
+      "delete_success": "ビデオ削除成功"
+    }
+  }
+}
