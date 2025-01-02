@@ -6,6 +6,7 @@
 
 <p align="center"><a href="README_zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
+![](docs/302_Video_Creation_Hub_en.png)
 
 This is the open-source version of the [AI Video Creation Hub](https://302.ai/en/tools/video/) from [302.AI](https://302.ai). You can directly log in to 302.AI to use the online version with zero code and zero background, or modify and deploy it yourself according to your requirements.
 
