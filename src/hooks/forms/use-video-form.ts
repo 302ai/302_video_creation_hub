@@ -12,7 +12,7 @@ import {
 import { useAtom } from "jotai";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useLayoutEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useState, useRef } from "react";
 import {
   getCurrentTask,
   initialVideoForm,
@@ -41,13 +41,12 @@ export interface UseVideoFormReturn {
 }
 
 const logger = createScopedLogger("UseVideoForm");
-
-let isGlobalInitialized = false;
-
 const TOAST_ID = "video-generation-status";
 
 export function useVideoForm(): UseVideoFormReturn {
   const t = useTranslations("generation");
+
+  const hasAttemptedRestore = useRef(false);
 
   const [isCreatingTask, setIsCreatingTask] = useState(false);
 
@@ -198,23 +197,25 @@ export function useVideoForm(): UseVideoFormReturn {
     }
   }, [isPolling, setError, startPolling, t, watch]);
 
-  // 页面刷新后，如果当前任务存在，则设置为当前任务
   useLayoutEffect(() => {
-    if (isGlobalInitialized) return;
-
-    isGlobalInitialized = true;
-
-    if (!isPolling) {
+    if (!hasAttemptedRestore.current && !isPolling) {
       const storedTask = store.get(getCurrentTask);
+
       if (storedTask.taskId) {
         try {
+          logger.debug(
+            "Attempting to restore polling for task:",
+            storedTask.taskId
+          );
           startPolling(storedTask.taskId);
         } catch (error) {
-          logger.error("Error polling video:", error);
+          logger.error("Error restoring video polling:", error);
         }
       }
+
+      hasAttemptedRestore.current = true;
     }
-  }, [isPolling, startPolling]);
+  }, [startPolling, isPolling]);
 
   return {
     isPolling,
