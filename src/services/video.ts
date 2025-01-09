@@ -8,7 +8,7 @@ import { env } from "@/env";
 const logger = createScopedLogger("VideoApi");
 
 /**
- * 生成视频素材文案
+ * generate video script
  */
 const GET_VIDEO_SCRIPT_API = "302/stock-video/api/v1/scripts";
 
@@ -22,11 +22,11 @@ export const VideoScriptResponseSchema = z.object({
 export type VideoScriptResponse = z.infer<typeof VideoScriptResponseSchema>;
 
 /**
- * 生成视频文案
- * @param params 包含视频主题和语言
- * @param params.videoSubject 视频主题
- * @param params.videoLanguage 输出语言
- * @returns 视频文案
+ * generate video script
+ * @param params
+ * @param params.videoSubject video subject
+ * @param params.videoLanguage output language
+ * @returns video script
  */
 export async function generateVideoScript(params: {
   videoSubject: string;
@@ -46,7 +46,7 @@ export async function generateVideoScript(params: {
 }
 
 /**
- * 生成视频素材搜索词
+ * generate video terms
  */
 const GET_VIDEO_TERMS_API = "302/stock-video/api/v1/terms";
 
@@ -60,12 +60,12 @@ export const VideoTermsResponseSchema = z.object({
 export type VideoTermsResponse = z.infer<typeof VideoTermsResponseSchema>;
 
 /**
- * 获取视频关键词
- * @param params 包含视频主题、文案和语言
- * @param params.videoSubject 视频主题
- * @param params.videoScript 视频文案
- * @param params.videoLanguage 输出语言
- * @returns 视频关键词
+ * get video terms
+ * @param params
+ * @param params.videoSubject video subject
+ * @param params.videoScript video script
+ * @param params.videoLanguage output language
+ * @returns video terms
  */
 export async function getVideoTerms(params: {
   videoSubject: string;
@@ -93,7 +93,7 @@ export async function getVideoTerms(params: {
 }
 
 /**
- * 创建视频素材生成任务
+ * create video task
  */
 const CREATE_VIDEO_TASK_API = "302/stock-video/api/v1/videos";
 
@@ -109,9 +109,28 @@ export type CreateVideoTaskResponse = z.infer<
 >;
 
 /**
- * 创建视频素材生成任务
- * @param params 包含视频主题、文案、关键词、视频源、视频拼接模式、视频分辨率、视频时长、字幕、字幕字体、字幕位置、字体大小、描边粗细、字幕颜色、描边颜色、语音模型、音色、朗读音量、背景音乐、背景音乐音量
- * @returns 视频素材生成任务
+ * create video task
+ * @param params
+ * @param params.videoSubject video subject
+ * @param params.videoScript video script
+ * @param params.videoTerms video terms
+ * @param params.videoSource video source
+ * @param params.videoConcatMode video concat mode
+ * @param params.videoAspect video aspect
+ * @param params.videoClipDuration video clip duration
+ * @param params.subtitleEnabled subtitle enabled
+ * @param params.subtitleFont subtitle font
+ * @param params.subtitlePosition subtitle position
+ * @param params.fontSize font size
+ * @param params.strokeWidth stroke width
+ * @param params.textForeColor text fore color
+ * @param params.strokeColor stroke color
+ * @param params.modelName model name
+ * @param params.voiceName voice name
+ * @param params.voiceVolume voice volume
+ * @param params.bgmType bgm type
+ * @param params.bgmVolume bgm volume
+ * @returns video task
  */
 export async function createVideoTask(
   params: Omit<VideoSchemaType, "videoLanguage">
@@ -133,7 +152,7 @@ export async function createVideoTask(
     strokeWidth: stroke_width,
     textForeColor: text_fore_color,
     strokeColor: stroke_color,
-    modelName: models_name,
+    voiceType: voice_type,
     voiceName: voice_name,
     voiceVolume: voice_volume,
     bgmType: bgm_type,
@@ -157,7 +176,7 @@ export async function createVideoTask(
         stroke_width,
         text_fore_color,
         stroke_color,
-        models_name,
+        voice_type,
         voice_name,
         voice_volume,
         bgm_type: bgm_type === "null" ? "" : bgm_type,
@@ -168,7 +187,7 @@ export async function createVideoTask(
 }
 
 /**
- * 轮询获取视频素材生成任务状态
+ * poll video task status
  */
 const GET_VIDEO_TASK_STATUS_API = "302/stock-video/api/v1/tasks/";
 

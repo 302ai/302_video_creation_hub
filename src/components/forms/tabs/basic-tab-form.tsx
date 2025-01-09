@@ -125,6 +125,7 @@ export default function BasicTabForm({ videoForm }: BasicTabFormProps) {
             }))}
             label={t("video_language_label")}
             placeholder={t("video_language_placeholder")}
+            defaultValue={GLOBAL.VIDEOLANGUAGE.DEFAULT.value}
             watch={watch}
             register={register}
             setValue={setValue}

@@ -58,8 +58,6 @@ export default forwardRef(function AudioPlayer(
 
       logger.error("Error playing audio:", error);
     }
-
-    logger.info("handleVoicePlay", isPlaying);
   }, [isPlaying]);
 
   return (

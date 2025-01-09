@@ -11,6 +11,7 @@ import { useVideoForm } from "@/hooks/forms/use-video-form";
 import { useAtomValue } from "jotai";
 import { videoEditAtom } from "@/stores/slices/video_edit_store";
 import { useIsMobile } from "@/hooks/global/use-mobile";
+import { useVoiceModels } from "@/hooks/forms/use-video-models";
 
 const TAB_TRIGGER_CLASSNAME =
   "relative text-sm after:absolute after:bottom-0 after:left-[12px] after:right-[12px] after:h-[3px] data-[state=active]:shadow-none data-[state=active]:after:bg-[rgba(142,71,240,1)] text-base";
@@ -20,8 +21,11 @@ export default function Home() {
   const videoForm = useVideoForm();
   const { generatingScript } = useAtomValue(videoEditAtom);
 
+  useVoiceModels();
+
   const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState("basicParams");
+
   useEffect(() => {
     if (!isMobile && activeTab === "videoPreview") {
       setActiveTab("basicParams");

@@ -1,4 +1,55 @@
 {
+  "advancedTab": {
+    "form": {
+      "bgm-volume_label": "Background Music Volume",
+      "bgm_type_label": "Background Music",
+      "bgm_type_opts_label": {
+        "null": "No Background Music",
+        "random": "Random Background Music"
+      },
+      "font_size_label": "Subtitle Size",
+      "speech_model_label": "Speech Model",
+      "speech_setting": "Speech Setting",
+      "speech_voice_label": "Speech Voice",
+      "speech_voice_opts_suffix": {
+        "de-DE-Female": "(German-Female)",
+        "de-DE-Male": "(German-Male)",
+        "en-US-Female": "(American-Female)",
+        "en-US-Male": "(American-Male)",
+        "fr-FR-Female": "(French-Female)",
+        "fr-FR-Male": "(French-Male)",
+        "zh-CN-Female": "(Chinese-Female)",
+        "zh-CN-Male": "(Chinese-Male)"
+      },
+      "stroke_color_label": "Stroke Color",
+      "stroke_width_label": "Stroke Width",
+      "subtitle_font_label": "Subtitle Font",
+      "subtitle_font_placeholder": "Pexels",
+      "subtitle_label": "Open Subtitle（If not selected, the settings below will not take effect）",
+      "subtitle_position_label": "Subtitle Position",
+      "subtitle_position_opts_label": {
+        "bottom": "Bottom",
+        "middle": "Middle",
+        "top": "Top"
+      },
+      "subtitle_setting": "Subtitle Setting",
+      "text_color_label": "Text Color",
+      "video_duration_label": "Maximum duration of each video segment（in seconds）",
+      "video_mode_label": "Video Stitching Mode",
+      "video_mode_opts_label": {
+        "random": "Random",
+        "sequential": "Sequential"
+      },
+      "video_ratio_label": "Video Ratio",
+      "video_ratio_opts_label": {
+        "tikTok": "Portrait 9:16（TikTok Video）",
+        "xigua": "Landscape 16:9（Xigua Video）"
+      },
+      "video_setting": "Video Setting",
+      "video_source_label": "Video Source",
+      "voic-volume_label": "Voice Volume"
+    }
+  },
   "auth": {
     "description": "The creator has enabled verification, please fill in the sharing code below",
     "form": {
@@ -11,81 +62,46 @@
   },
   "baseTab": {
     "form": {
-      "video_subject_label": "Topic",
-      "video_subject_placeholder": "Required, enter the topic to generate video scripts and keywords",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "generate_content": "Generate Content",
+      "generate_loading_button_label": "Generating video, please wait for 3-4 minutes...",
+      "generate_video": "Generate Video",
+      "history_limit_description": "The number of video history records has reached the limit of 30. Please delete some history records before continuing.",
+      "history_limit_title": "Video History Record Limit Reached",
+      "regenerate_content": "Regenerate Content",
       "video_language_label": "Output Language",
-      "video_language_placeholder": "Auto Select",
       "video_language_opts_label": {
-        "zh": "Chinese",
+        "de": "German",
         "en": "English",
+        "fr": "French",
         "ja": "Japanese",
         "ko": "Korean",
-        "de": "German",
-        "fr": "French"
+        "zh": "Chinese"
       },
-      "generate_content": "Generate Content",
-      "regenerate_content": "Regenerate Content",
+      "video_language_placeholder": "Auto Select",
       "video_script_label": "Content",
       "video_script_placeholder": "Use punctuation properly to help generate a subtitle of appropriate length, the content should be less than 500 characters",
+      "video_subject_label": "Topic",
+      "video_subject_placeholder": "Required, enter the topic to generate video scripts and keywords",
       "video_terms_label": "Keywords",
-      "video_terms_placeholder": "Multiple keywords should be separated by commas",
-      "generate_video": "Generate Video",
-      "generate_loading_button_label": "Generating video, please wait for 3-4 minutes...",
-      "history_limit_title": "Video History Record Limit Reached",
-      "history_limit_description": "The number of video history records has reached the limit of 30. Please delete some history records before continuing.",
-      "confirm": "Confirm",
-      "cancel": "Cancel"
+      "video_terms_placeholder": "Multiple keywords should be separated by commas"
     }
   },
-  "advancedTab": {
-    "form": {
-      "video_setting": "Video Setting",
-      "subtitle_setting": "Subtitle Setting",
-      "speech_setting": "Speech Setting",
-      "video_source_label": "Video Source",
-      "video_mode_label": "Video stitching mode",
-      "video_mode_opts_label": {
-        "sequential": "Sequential",
-        "random": "Random"
-      },
-      "video_ratio_label": "Video Ratio",
-      "video_ratio_opts_label": {
-        "xigua": "Landscape 16:9（Xigua Video）",
-        "tikTok": "Portrait 9:16（TikTok Video）"
-      },
-      "video_duration_label": "Maximum duration of each video segment（in seconds）",
-      "subtitle_label": "Open Subtitle（If not selected, the settings below will not take effect）",
-      "subtitle_font_label": "Subtitle Font",
-      "subtitle_font_placeholder": "Pexels",
-      "subtitle_position_label": "Subtitle Position",
-      "subtitle_position_opts_label": {
-        "top": "Top",
-        "middle": "Middle",
-        "bottom": "Bottom"
-      },
-      "font_size_label": "Subtitle Size",
-      "stroke_width_label": "Stroke Width",
-      "text_color_label": "Text Color",
-      "stroke_color_label": "Stroke Color",
-      "speech_model_label": "Speech Model",
-      "speech_voice_label": "Speech Voice",
-      "speech_voice_opts_suffix": {
-        "zh-CN-Female": "(Chinese-Female)",
-        "zh-CN-Male": "(Chinese-Male)",
-        "en-US-Female": "(American-Female)",
-        "en-US-Male": "(American-Male)",
-        "de-DE-Female": "(German-Female)",
-        "de-DE-Male": "(German-Male)",
-        "fr-FR-Female": "(French-Female)",
-        "fr-FR-Male": "(French-Male)"
-      },
-      "bgm_type_label": "Background Music",
-      "bgm_type_opts_label": {
-        "null": "No Background Music",
-        "random": "Random Background Music"
-      },
-      "voic-volume_label": "Voice Volume",
-      "bgm-volume_label": "Background Music Volume"
+  "generation": {
+    "errors": {
+      "create_video_task_failed": "Failed to create video task, please try again later",
+      "videoScript": "Video script is required!",
+      "videoSubject": "Video subject is required!",
+      "videoTerms": "Keywords is required!",
+      "video_generated_failed": "Failed to generate video"
+    },
+    "loading": {
+      "generating_video": "Video generating, please wait for 3-4 minutes..."
+    },
+    "success": {
+      "create_video_task_success": "Video task created, please check the results later",
+      "video_generated_success": "Video generated successfully"
     }
   },
   "global": {
@@ -126,36 +142,20 @@
       "title": "AI Video Creation Hub"
     },
     "tabs": {
-      "basicParams": "Basic Parameters",
       "advancedParams": "Advanced Parameters",
+      "basicParams": "Basic Parameters",
       "videoPreview": "Video Preview"
     }
   },
-  "generation": {
-    "errors": {
-      "videoSubject": "Video subject is required!",
-      "videoScript": "Video script is required!",
-      "videoTerms": "Keywords is required!",
-      "create_video_task_failed": "Failed to create video task, please try again later",
-      "video_generated_failed": "Failed to generate video"
-    },
-    "success": {
-      "create_video_task_success": "Video task created, please check the results later",
-      "video_generated_success": "Video generated successfully"
-    },
-    "loading": {
-      "generating_video": "Video generating, please wait for 3-4 minutes..."
-    }
-  },
   "videoCard": {
-    "videoGenerating": "Video generating...",
-    "download": "Download",
     "delete": "Delete",
+    "download": "Download",
     "toast": {
-      "downloading": "Downloading video...",
-      "downloaded_success": "Video download successful",
+      "delete_success": "Video deletion successful",
       "download_failed": "Video download failed",
-      "delete_success": "Video deletion successful"
-    }
+      "downloaded_success": "Video download successful",
+      "downloading": "Downloading video..."
+    },
+    "videoGenerating": "Video generating..."
   }
 }

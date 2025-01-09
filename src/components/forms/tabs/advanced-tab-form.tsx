@@ -11,6 +11,12 @@ import AudioPlayer, {
   AudioPlayerRef,
 } from "@/components/business/audio-player";
 import ColorPickerButton from "@/components/business/color-picker-button";
+import {
+  getSampleUrlByVoiceAtom,
+  getVoicesByModelAtom,
+  voiceModelAtom,
+} from "@/stores/slices/video_model_store";
+import { useAtomValue } from "jotai";
 
 interface AdvancedTabProps {
   videoForm: UseVideoFormReturn;
@@ -25,19 +31,31 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
 
   const { register, errors, watch, setValue } = videoForm;
 
-  const selectedVoice = watch("voiceName");
   const audioPlayerRef = useRef<AudioPlayerRef | null>(null);
-  useEffect(() => {
-    audioPlayerRef.current?.stopAudio();
-  }, [selectedVoice]);
 
   const textColor = watch("textForeColor");
   const strokeColor = watch("strokeColor");
+  const selectedModel = watch("voiceType");
+  const selectedVoice = watch("voiceName");
+  const selectedLanguage = watch("videoLanguage");
+
+  const voiceModelState = useAtomValue(voiceModelAtom);
+  const getVoicesByModel = useAtomValue(getVoicesByModelAtom);
+  const getSampleUrlByVoice = useAtomValue(getSampleUrlByVoiceAtom);
+
+  useEffect(() => {
+    audioPlayerRef.current?.stopAudio();
+  }, [selectedVoice]);
 
   useEffect(() => {
     register("textForeColor");
     register("strokeColor");
   }, [register]);
+
+  useEffect(() => {
+    setValue("voiceName", getVoicesByModel(selectedModel)[0]?.name);
+    setValue("voiceType", selectedModel);
+  }, [getVoicesByModel, selectedModel, setValue, voiceModelState]);
 
   return (
     <form className="flex h-full w-full flex-col items-center gap-6">
@@ -62,7 +80,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
           </TabsList>
           <TabsContent value="videoSetting" className="mt-4 animate-tab-left">
             <div className="flex flex-col gap-4">
-              {/* 视频来源 */}
+              {/* Video Source */}
               <FormGenerator
                 id="video-source"
                 name="videoSource"
@@ -81,7 +99,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 视频拼接模式 */}
+              {/* Video stitching mode */}
               <FormGenerator
                 id="video-concat-mode"
                 name="videoConcatMode"
@@ -100,7 +118,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 视频比例 */}
+              {/* Video Ratio */}
               <FormGenerator
                 id="video-aspect"
                 name="videoAspect"
@@ -119,7 +137,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 每个视频合成片段最大时长（单位：秒） */}
+              {/* Maximum duration of each video segment（in seconds） */}
               <FormGenerator
                 id="video-clip-duration"
                 name="videoClipDuration"
@@ -144,7 +162,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
             className="mt-4 animate-tab-left"
           >
             <div className="flex w-full flex-col gap-4">
-              {/* 启用字幕 */}
+              {/* Open Subtitle */}
               <FormGenerator
                 id="subtitle-switch"
                 name="subtitleEnabled"
@@ -156,7 +174,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 字幕字体 */}
+              {/* Subtitle Font */}
               <FormGenerator
                 id="subtitle-font"
                 name="subtitleFont"
@@ -174,7 +192,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 字幕位置 */}
+              {/* Subtitle Position */}
               <FormGenerator
                 id="subtitle-position"
                 name="subtitlePosition"
@@ -193,7 +211,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 字幕大小 */}
+              {/* Subtitle Size */}
               <FormGenerator
                 id="font-size"
                 name="fontSize"
@@ -217,7 +235,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 <span>100</span>
               </div>
 
-              {/* 描边粗细 */}
+              {/* Stroke Width */}
               <FormGenerator
                 id="stroke-width"
                 name="strokeWidth"
@@ -241,13 +259,13 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
               </div>
 
               <div className="relative flex gap-x-[94px] max-md:flex-col max-md:gap-y-4">
-                {/* 字幕颜色 */}
+                {/* Text Color */}
                 <ColorPickerButton
                   label={t("text_color_label")}
                   color={textColor}
                   onChange={(color) => setValue("textForeColor", color)}
                 />
-                {/* 描边颜色 */}
+                {/* Stroke Color */}
                 <ColorPickerButton
                   label={t("stroke_color_label")}
                   color={strokeColor}
@@ -258,42 +276,40 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
           </TabsContent>
           <TabsContent value="speechSetting" className="mt-4 animate-tab-left">
             <div className="flex flex-col gap-4">
-              {/* 选择语音模型（暂不支持） */}
-              {/* <FormGenerator
-                id="model-name"
-                name="modelName"
+              {/* Speech Model */}
+              <FormGenerator
+                id="voice-type"
+                name="voiceType"
                 inputType="select"
-                options={GLOBAL.MODELSNAME.SUPPORTED.map((item) => ({
-                  value: item,
-                  label: item,
-                  id: item,
+                options={voiceModelState.models.map((model) => ({
+                  value: model.modelName,
+                  label: model.modelName,
+                  id: model.modelName,
                 }))}
+                defaultValue={voiceModelState.models[0]?.modelName}
+                placeholder={voiceModelState.models[0]?.modelName}
                 label={t("speech_model_label")}
-                defaultValue={GLOBAL.MODELSNAME.DEFAULT}
-                placeholder={GLOBAL.MODELSNAME.DEFAULT}
                 watch={watch}
                 register={register}
                 setValue={setValue}
                 errors={errors}
-              /> */}
+              />
 
-              {/* 选择音色 */}
+              {/* Speech Voice */}
               <div className="flex w-full flex-wrap gap-2">
                 <div className="flex-1">
                   <FormGenerator
                     id="voice-name"
                     name="voiceName"
                     inputType="select"
-                    options={GLOBAL.VOICENAME.SUPPORTED.map((item) => ({
-                      value: item.value,
-                      label: `${item.label} ${t(item.suffix)}`,
-                      id: item.value,
+                    options={getVoicesByModel(selectedModel).map((voice) => ({
+                      value: voice.name,
+                      label: voice.displayName,
+                      id: voice.name,
                     }))}
+                    defaultValue={getVoicesByModel(selectedModel)[0]?.name}
+                    placeholder={getVoicesByModel(selectedModel)[0]?.name}
                     label={t("speech_voice_label")}
-                    defaultValue={GLOBAL.VOICENAME.DEFAULT.value}
-                    placeholder={`${GLOBAL.VOICENAME.DEFAULT.label} ${t(
-                      GLOBAL.VOICENAME.DEFAULT.suffix
-                    )}`}
                     watch={watch}
                     register={register}
                     setValue={setValue}
@@ -304,15 +320,13 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                   <AudioPlayer
                     ref={audioPlayerRef}
                     audioUrl={
-                      GLOBAL.VOICENAME.SUPPORTED.find(
-                        (item) => item.value === selectedVoice
-                      )?.url || GLOBAL.VOICENAME.DEFAULT.url
+                      getSampleUrlByVoice(selectedVoice, selectedLanguage) || ""
                     }
                   />
                 </div>
               </div>
 
-              {/* 朗读音量 */}
+              {/* Voice Volume */}
               <FormGenerator
                 id="voice-volume"
                 name="voiceVolume"
@@ -331,7 +345,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 背景音乐 */}
+              {/* Background Music */}
               <FormGenerator
                 id="bgm-type"
                 name="bgmType"
@@ -350,7 +364,7 @@ export default function AdvancedTabForm({ videoForm }: AdvancedTabProps) {
                 errors={errors}
               />
 
-              {/* 背景音乐音量 */}
+              {/* Background Music Volume */}
               <FormGenerator
                 id="bgm-volume"
                 name="bgmVolume"
