@@ -1,6 +1,10 @@
 # Base image
 FROM node:20.14-alpine AS base
 
+# Install corepack once in base image
+RUN npm install -g corepack@latest && \
+  corepack enable pnpm
+
 # Stage 1: Install dependencies only when needed
 FROM base AS deps
 WORKDIR /app
@@ -10,7 +14,6 @@ COPY package.json pnpm-lock.yaml* ./
 
 # Install necessary system packages before dependencies
 RUN apk add --no-cache libc6-compat && \
-  corepack enable pnpm && \
   pnpm config set registry https://registry.npmjs.org
 
 # Install node_modules separately
@@ -33,6 +36,7 @@ ARG NEXT_PUBLIC_AUTH_PATH
 ARG NEXT_PUBLIC_IS_CHINA
 ARG NEXT_PUBLIC_DEFAULT_LOCALE
 ARG NEXT_PUBLIC_TOOL_URL
+ARG NEXT_PUBLIC_GITHUB_REPO_URL
 
 # Set environment variables
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
@@ -46,13 +50,13 @@ ENV NEXT_PUBLIC_AUTH_PATH=$NEXT_PUBLIC_AUTH_PATH
 ENV NEXT_PUBLIC_IS_CHINA=$NEXT_PUBLIC_IS_CHINA
 ENV NEXT_PUBLIC_DEFAULT_LOCALE=$NEXT_PUBLIC_DEFAULT_LOCALE
 ENV NEXT_PUBLIC_TOOL_URL=$NEXT_PUBLIC_TOOL_URL
-
+ENV NEXT_PUBLIC_GITHUB_REPO_URL=$NEXT_PUBLIC_GITHUB_REPO_URL
 # Copy dependencies and source code
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Build application
-RUN corepack enable pnpm && pnpm run build
+RUN pnpm run build
 
 # Stage 3: Runner stage
 FROM base AS runner

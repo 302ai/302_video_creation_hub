@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "./language-switcher";
 import { ThemeSwitcher } from "./theme-switcher";
 import { ToolInfo } from "./tool-info";
 import ChatToggler from "./chat-toggler";
+import { GithubHyperlink } from "./github-hyperlink";
 
 type HeaderProps = {
   className?: string;
@@ -29,6 +30,7 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(({ className }, ref) => {
           className
         )}
       >
+        <GithubHyperlink />
         {!isAuthPath(pathname) && !isOutsideDeployMode() && <ToolInfo />}
         <ChatToggler />
         <LanguageSwitcher />

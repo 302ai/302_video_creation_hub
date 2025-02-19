@@ -103,6 +103,9 @@
       "copyright_leading": "AI生成のコンテンツであり、参考用です"
     },
     "header": {
+      "github_hyperlink": {
+        "label": "GitHubリポジトリリンク"
+      },
       "language_switcher": {
         "switch_language": "言語を切り替える"
       },
